@@ -5,7 +5,9 @@ module Api::V1
         story: object.story.name,
         name: object.name,
         text: object.text,
-        article_type: object.article_type
+        article_type: object.article_type,
+        updated_at: object.updated_at,
+        created_at: object.created_at
       }
     end
   end

@@ -1,13 +1,16 @@
 import React from 'react'
+import OrderCell from './OrderCell'
 
 class TableHead extends React.Component {
   render() {
     return (
       <tr>
-        <td>Story</td>
-        <td>Name</td>
-        <td>Text</td>
-        <td>Article type</td>
+        <OrderCell headField='Story' />
+        <OrderCell headField='Name' />
+        <OrderCell headField='Text' />
+        <OrderCell headField='Article type' />
+        <OrderCell headField='Updated at' />
+        <OrderCell headField='Created at' />
       </tr>
     )
   }

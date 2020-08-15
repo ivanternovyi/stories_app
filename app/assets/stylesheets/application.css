@@ -26,3 +26,17 @@ h1 {
 thead {
   font-size: 1.5rem;
 }
+
+.orderField {
+  display: flex;
+  justify-content: center;
+}
+
+.orderDirections {
+  color: blue;
+  cursor: pointer;
+  display: flex;
+  flex-grow: 1;
+  font-size: 1.1rem;
+  justify-content: space-evenly;
+}

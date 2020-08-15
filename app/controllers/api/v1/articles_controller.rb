@@ -1,8 +1,7 @@
 module Api::V1
   class ArticlesController < BaseController
     def index
-      # temp send all articles
-      render json: ArticleCollectionSerializer.new(Article.all).call
+      render json: FilterArticlesService.new(params).call
     end
   end
 end
