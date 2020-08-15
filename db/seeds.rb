@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+50.times do
+  story = Story.find_or_create_by(
+    name: Faker::Lorem.word.capitalize
+  )
+
+  Article.create(
+    name: Faker::Lorem.word.capitalize,
+    text: Faker::Lorem.sentence,
+    article_type: Article::VALID_ARTICLE_TYPES.sample,
+    story_id: story.id
+  )
+end
