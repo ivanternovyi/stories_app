@@ -1,16 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import Header from './Header.js'
+import Table from './articles/Table'
 
 class App extends React.Component {
   render() {
     return (
-      <div>UI App entry</div>
+      <>
+        <Header />
+        <Table />
+      </>
     )
   }
 }
-
-App.propTypes = {
-  articles: PropTypes.array
-};
 
 export default App
