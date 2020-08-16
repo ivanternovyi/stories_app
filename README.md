@@ -33,3 +33,6 @@ Let's suppose there are two users are on the same page and if one of them will c
 ## deploy it
 
 Application should be up and running on the server. Please provide SSH access to it.
+
+## Deployed to Heroku
+url: https://my-stories-app.herokuapp.com/
