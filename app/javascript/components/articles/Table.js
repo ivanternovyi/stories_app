@@ -1,7 +1,9 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react'
 import SearchField from './SearchField'
+import GroupSelect from './GroupSelect'
 import TableHead from './TableHead'
+import GroupNameTableRow from './GroupNameTableRow'
 import TableRow from './TableRow'
 import { computed, toJS } from 'mobx'
 
@@ -19,10 +21,38 @@ class Table extends React.Component {
     return toJS(this.storeObject.articlesArray)
   }
 
-  renderRows = () => (
-    this.articlesArray.map((elem, index) => {
+  renderRows = () => {
+    if ([null, ''].includes(this.storeObject.params.group_by)) {
+      return this.renderOrdinaryRows()
+    } else {
+      return this.renderGroupedRows()
+    }
+  }
+
+  renderOrdinaryRows = () => (
+    this.articlesArray.map((article, index) => {
       return (
-        <TableRow key={index} article={elem} />
+        <TableRow key={index} article={article} />
+      )
+    })
+  )
+
+  renderGroupedRows = () => (
+    //  [ { key: [{}...{}]}, { key: [{}...{}]}, { key: [{}...{}]}]
+    this.articlesArray.map((groupedHash, groupIndex) => {
+      let groupName = Object.keys(groupedHash)[0]
+      let groupedArticles = Object.values(groupedHash)[0]
+
+      return (
+        <>
+          <GroupNameTableRow key={groupIndex} groupName={groupName} />
+
+          {
+            Array.isArray(groupedArticles) && groupedArticles.map((article, index) => {
+              return <TableRow key={index} article={article} />
+            })
+          }
+        </>
       )
     })
   )
@@ -32,6 +62,9 @@ class Table extends React.Component {
       <div>
         <div>
           <SearchField />
+        </div>
+        <div>
+          <GroupSelect />
         </div>
         <table>
           <thead>

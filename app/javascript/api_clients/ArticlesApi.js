@@ -12,6 +12,7 @@ class ArticlesApi {
             order_field: queryParams.order_field,
             order_direction: queryParams.order_direction,
             keyword: queryParams.keyword,
+            group_by: queryParams.group_by
           }
         }
       )

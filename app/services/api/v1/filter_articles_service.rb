@@ -8,7 +8,7 @@ module Api::V1
     def call
       filtered_articles = ::ArticleQuery.new(articles, params).call
 
-      if params[:group_by]
+      if params[:group_by].present?
         GroupedArticleCollectionSerializer.new(filtered_articles).call
       else
         ArticleCollectionSerializer.new(filtered_articles).call

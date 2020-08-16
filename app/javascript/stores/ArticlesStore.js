@@ -6,7 +6,8 @@ class ArticlesStore {
   @observable params = {
     order_field: null,
     order_direction: null,
-    keyword: null
+    keyword: null,
+    group_by: null
   }
 
   constructor() {
@@ -31,6 +32,10 @@ class ArticlesStore {
 
   @action setKeyword(keyword) {
     this.params.keyword = keyword
+  }
+
+  @action setGroupBy(groupBy) {
+    this.params.group_by = groupBy
   }
 
   @action setArticles(articles) {
