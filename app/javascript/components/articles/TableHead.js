@@ -7,12 +7,12 @@ class TableHead extends React.Component {
   render() {
     return (
       <tr>
-        <OrderCell headField='Story' />
-        <OrderCell headField='Name' />
-        <OrderCell headField='Text' />
-        <OrderCell headField='Article type' />
-        <OrderCell headField='Updated at' />
-        <OrderCell headField='Created at' />
+        <OrderCell headField='Story' orderField='story_name' />
+        <OrderCell headField='Name' orderField='name' />
+        <OrderCell headField='Text' orderField='text' />
+        <OrderCell headField='Article type' orderField='article_type' />
+        <OrderCell headField='Updated at' orderField='updated_at' />
+        <OrderCell headField='Created at' orderField='created_at' />
       </tr>
     )
   }

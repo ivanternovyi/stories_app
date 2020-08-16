@@ -8,11 +8,11 @@ class OrderCell extends React.Component {
   storeObject = this.props.articlesStore
 
   handleOrderAscClick = () => {
-    this.storeObject.setOrder(this.props.headField, 'ASC')
+    this.storeObject.setOrder(this.props.orderField, 'ASC')
   }
 
   handleOrderDescClick = () => {
-    this.storeObject.setOrder(this.props.headField, 'DESC')
+    this.storeObject.setOrder(this.props.orderField, 'DESC')
   }
 
   render() {

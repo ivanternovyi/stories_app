@@ -36,7 +36,7 @@ class ArticleQuery
                     params[:order_field]
                   end
 
-    "#{order_field.downcase} #{params[:order_direction]}"
+    "#{order_field} #{params[:order_direction]}"
   end
 
   def symbolize_group_param
