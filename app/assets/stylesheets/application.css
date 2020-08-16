@@ -27,6 +27,11 @@ thead {
   font-size: 1.5rem;
 }
 
+.searchField {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
 .orderField {
   display: flex;
   justify-content: center;

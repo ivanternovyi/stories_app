@@ -21,8 +21,7 @@ class ArticleQuery
   def filtered_articles
     @relation
       .includes(:story)
-      .by_name(params[:name])
-      .by_text(params[:text])
+      .by_keyword(params[:keyword])
       .order(order_query_str)
   end
 

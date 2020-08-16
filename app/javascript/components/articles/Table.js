@@ -1,5 +1,6 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react'
+import SearchField from './SearchField'
 import TableHead from './TableHead'
 import TableRow from './TableRow'
 import { computed, toJS } from 'mobx'
@@ -29,6 +30,9 @@ class Table extends React.Component {
   render() {
     return (
       <div>
+        <div>
+          <SearchField />
+        </div>
         <table>
           <thead>
             <TableHead />

@@ -11,7 +11,7 @@ class Article < ApplicationRecord
   validates :text, presence: true
   validates :article_type, inclusion: { in: VALID_ARTICLE_TYPES }
 
-  scope :by_name, ->(name) { where('articles.name LIKE ?', "%#{name}%") }
-  scope :by_text, ->(text) { where('text LIKE ?', "%#{text}%") }
-
+  scope :by_keyword, -> (keyword) { by_name(keyword).or(by_text(keyword)) }
+  scope :by_name, ->(name) { where('articles.name ILIKE ?', "%#{name}%") }
+  scope :by_text, ->(text) { where('articles.text ILIKE ?', "%#{text}%") }
 end

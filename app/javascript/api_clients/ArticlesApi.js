@@ -10,7 +10,8 @@ class ArticlesApi {
         {
           params: {
             order_field: queryParams.order_field,
-            order_direction: queryParams.order_direction
+            order_direction: queryParams.order_direction,
+            keyword: queryParams.keyword,
           }
         }
       )

@@ -5,7 +5,8 @@ class ArticlesStore {
   @observable articlesArray = []
   @observable params = {
     order_field: null,
-    order_direction: null
+    order_direction: null,
+    keyword: null
   }
 
   constructor() {
@@ -26,6 +27,10 @@ class ArticlesStore {
   @action setOrder(orderField, orderDirection) {
     this.params.order_field = orderField
     this.params.order_direction = orderDirection
+  }
+
+  @action setKeyword(keyword) {
+    this.params.keyword = keyword
   }
 
   @action setArticles(articles) {
