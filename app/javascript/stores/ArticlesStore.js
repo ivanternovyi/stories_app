@@ -21,24 +21,34 @@ class ArticlesStore {
     );
   }
 
-  @computed get queryParams() {
+  @computed
+  get queryParams() {
     return toJS(this.params)
   }
 
-  @action setOrder(orderField, orderDirection) {
+  @computed
+  get articles() {
+    return toJS(this.articlesArray)
+  }
+
+  @action
+  setOrder(orderField, orderDirection) {
     this.params.order_field = orderField
     this.params.order_direction = orderDirection
   }
 
-  @action setKeyword(keyword) {
+  @action
+  setKeyword(keyword) {
     this.params.keyword = keyword
   }
 
-  @action setGroupBy(groupBy) {
+  @action
+  setGroupBy(groupBy) {
     this.params.group_by = groupBy
   }
 
-  @action setArticles(articles) {
+  @action
+  setArticles(articles) {
     this.articlesArray = articles;
   }
 

@@ -17,10 +17,6 @@ class Table extends React.Component {
     this.storeObject.getArticles()
   }
 
-  @computed get articlesArray() {
-    return toJS(this.storeObject.articlesArray)
-  }
-
   renderRows = () => {
     if ([null, ''].includes(this.storeObject.params.group_by)) {
       return this.renderOrdinaryRows()
@@ -30,7 +26,7 @@ class Table extends React.Component {
   }
 
   renderOrdinaryRows = () => (
-    this.articlesArray.map((article, index) => {
+    this.storeObject.articles.map((article, index) => {
       return (
         <TableRow key={index} article={article} />
       )
@@ -39,7 +35,7 @@ class Table extends React.Component {
 
   renderGroupedRows = () => (
     //  [ { key: [{}...{}]}, { key: [{}...{}]}, { key: [{}...{}]}]
-    this.articlesArray.map((groupedHash, groupIndex) => {
+    this.storeObject.articles.map((groupedHash, groupIndex) => {
       let groupName = Object.keys(groupedHash)[0]
       let groupedArticles = Object.values(groupedHash)[0]
 
