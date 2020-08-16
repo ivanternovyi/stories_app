@@ -1,12 +1,18 @@
 import React from 'react'
+import { inject, observer } from 'mobx-react'
 
+@inject('articlesStore')
+
+@observer
 class OrderCell extends React.Component {
+  storeObject = this.props.articlesStore
+
   handleOrderAscClick = () => {
-    console.log('ASC clicked')
+    this.storeObject.setOrder(this.props.headField, 'ASC')
   }
 
   handleOrderDescClick = () => {
-    console.log('DESC clicked')
+    this.storeObject.setOrder(this.props.headField, 'DESC')
   }
 
   render() {

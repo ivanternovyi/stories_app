@@ -27,6 +27,8 @@ class ArticleQuery
   end
 
   def order_query_str
+    return if params[:order_field].blank?
+
     # stories.name for ordering by story_name
     order_field = if params[:order_field] == STORY_NAME_ORDER_PARAM
                     'stories.name'
@@ -34,7 +36,7 @@ class ArticleQuery
                     params[:order_field]
                   end
 
-    "#{order_field} #{params[:order_direction]}"
+    "#{order_field.downcase} #{params[:order_direction]}"
   end
 
   def symbolize_group_param

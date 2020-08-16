@@ -1,6 +1,8 @@
 import React from 'react'
 import OrderCell from './OrderCell'
+import { observer } from 'mobx-react'
 
+@observer
 class TableHead extends React.Component {
   render() {
     return (

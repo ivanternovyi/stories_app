@@ -1,13 +1,17 @@
 import React from 'react'
 import Header from './Header.js'
 import Table from './articles/Table'
+import { Provider } from 'mobx-react';
+import ArticlesStore from '../stores/ArticlesStore'
 
 class App extends React.Component {
   render() {
     return (
       <>
-        <Header />
-        <Table />
+        <Provider articlesStore={(new ArticlesStore)}>
+          <Header />
+          <Table />
+        </Provider>
       </>
     )
   }

@@ -1,21 +1,30 @@
 import React from 'react'
+import { observer, inject } from 'mobx-react'
 import TableHead from './TableHead'
 import TableRow from './TableRow'
-import ArticlesApi from 'api_clients/ArticlesApi'
+import { computed, toJS } from 'mobx'
 
+@inject('articlesStore')
+
+@observer
 class Table extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      articles: []
-    }
-  }
+  storeObject = this.props.articlesStore
 
   componentDidMount() {
-    ArticlesApi.get()
-               .then(response => this.setState({ articles: response }))
+    this.storeObject.getArticles()
   }
+
+  @computed get articlesArray() {
+    return toJS(this.storeObject.articlesArray)
+  }
+
+  renderRows = () => (
+    this.articlesArray.map((elem, index) => {
+      return (
+        <TableRow key={index} article={elem} />
+      )
+    })
+  )
 
   render() {
     return (
@@ -25,11 +34,7 @@ class Table extends React.Component {
             <TableHead />
           </thead>
           <tbody>
-          {this.state.articles.map((elem, index) => {
-            return (
-              <TableRow key={index} article={elem} />
-            )
-          })}
+            {this.renderRows()}
           </tbody>
         </table>
       </div>
