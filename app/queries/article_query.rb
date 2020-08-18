@@ -41,12 +41,4 @@ class ArticleQuery
   def symbolize_group_param
     params[:group_by].to_sym
   end
-
-  def group_by_story_with_totals
-    # TODO:
-    # grouped by story with totals:
-    #         article count
-    #         article type count
-    #         last created article
-  end
 end
